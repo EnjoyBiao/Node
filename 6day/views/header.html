@@ -1,0 +1,39 @@
+<div class="head" style="width: 100%;height: 60px;;background-color: gray">
+  <!-- <div class="left" style="float: right; height: 50px;
+        display: flex;
+        flex-direction:row-reverse">
+      <div style="width: 100px;height: 100%; display: flex ; align-content: center;">
+          <a style="display: block;line-height: 50px">设置</a>
+      </div>
+      <div style="width: 100px;height: 100%;">
+        <a href="./login" style="display: block;line-height: 50px">登录</a>
+      </div>
+      <div style="width: 100px;height: 100%;">
+        <a href="./register" style="display: block;line-height: 50px">注册</a>
+      </div>
+   </div> -->
+  <nav class="navbar navbar-expand-sm float-right navbar-dark ">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <div class="dropdown">
+          <button  class="dropbtn">设置</button>
+          <div class="dropdown-content">
+            <a href="">{{user}}</a>
+            <a href="/gitout">退出</a>
+            <a href="http://www.runoob.com"></a>
+          </div>
+        </div>
+      </li>
+      {{if user=="nicname"}}
+      <li class="nav-item">
+        <a class="nav-link" href="./login">登录</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./register">注册</a>
+      </li>
+      {{/if}}
+
+    </ul>
+  </nav>
+</div>

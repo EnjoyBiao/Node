@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+	<h2>AJAX</h2>
+	<button type="button" onclick="loadXMLDoc()">请求数据</button>
+	<div id="myDiv"></div>
+
+</body>
+<script>
+	function loadXMLDoc() {
+		var oStr = '';
+		var postData = {
+			"Group": null,
+			"PhoneNumber": "+8613810351465",
+			"IMEI": "111111111111111",
+			"Date": "\/Date(1514246420000)\/",
+			"Time": "00:00:20",
+			"PhoneType": "TA-1077",
+			"Version": "1.0.2316",
+			"MulderFile": "anr--XXXX", // fill abnormal reason
+			"Hash": "-1425837475",
+			"ExtraCode": null,
+			"VariantCode": null,
+			"CallStack": null,
+			"AssertFile": null
+		};
+		var oAjax = null;
+		//post提交的数据
+		//postData = { "name1": "value1", "name2": "value2" };
+		//这里需要将json数据转成post能够进行提交的字符串  name1=value1&name2=value2格式
+	//	postData = (function (value) {
+			　　//for (var key in value) {
+				　　　//　oStr += key + "=" + value[key] + "&";
+			　//　};
+			　　//return oStr;
+		//}(postData));
+		//这里进行HTTP请求
+		try {
+			　　oAjax = new XMLHttpRequest();
+		} catch (e) {
+			　　oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+		};
+		//post方式打开文件
+		oAjax.open('post', "https://bj-autosms.fihtdc.com/api/shortmessage/upload", true);
+		//post相比get方式提交多了个这个
+		//oAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  	 oAjax.setRequestHeader("Content-type", " application/json; charset=utf-8");
+		//post发送数据
+		oAjax.send(postData);
+		oAjax.onreadystatechange = function () {
+			   console.log('dddddd='+ oAjax.getAllResponseHeaders());
+			   console.log('cccccc='+oAjax.status);
+			　　//当状态为4的时候，执行以下操作
+			　　if (oAjax.readyState == 4) {
+				　if(oAjax.status==0){
+                    var data = oAjax.responseText;
+					console.log(data);
+                  }
+			　　};
+		};
+
+	}
+</script>
+
+</html>

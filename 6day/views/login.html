@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        body{
+            background-color: #f1f1f1;
+        }
+        .logo{
+          margin-top: 20px;
+          padding-left: 20px;
+          display: table-cell;
+          text-align: center;
+        }
+        .logo span{
+        color: #e88722;
+        font-size: 25px
+        }
+       .content{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+          width: 100%;
+          height: 355px;
+          width: 299px;
+          transform: translate(-50%,-70%);
+          background-color:#fff;
+          text-align: center;
+          padding-top: 20px;
+          letter-spacing: 5px;
+        } 
+       .title{
+        color: #c8c8c8;
+        font-size: 22px;
+       }
+       a{
+          text-decoration-line: none;
+          color: #c8c8c8;
+       }
+
+       a:first-child{
+       font-weight: 700;
+       color: #ea6f5a;
+       border-bottom: 2px solid #ea6f5a;
+       }
+       .form_content{
+          margin-top: 20px;
+          font-size: 18px;
+          color: #c8c8c8
+       }
+       .acount{
+           margin-top: 10px
+       }
+      input{
+    display: inline-block;
+       height: 22px;
+      margin-bottom: 0;
+     border: 1px solid #c8c8c8;
+     border-radius: 0 0 4px 4px;
+     background-color: hsla(0,0%,71%,.1);
+     vertical-align: middle
+       }
+       .passworld{
+           margin-top: 10px
+       }
+    .btn{
+        margin-top: 20px;
+        color: #216d14;
+        width: 226px;
+        height: 34px;
+    }
+    </style>#c8c8c8
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="logo">
+        <span>欢迎光临</span>
+    </div>
+   <div class="content">
+           <div class="title">
+               <h4>
+                  <a >登录</a>
+                   <b>.</b>
+                  <a href="/register">注册</a>
+               </h4>
+           </div>
+           <div class="form_content">
+              <form id="login_form">
+                    <div class="">
+                            <label for="email">邮箱</label>
+                            <input  id="acount" name="email" placeholder="输入邮箱">
+                    </div>
+                  <div class="acount">
+                        <label for="nickname">帐号</label>
+                        <input  id="nickname" name="nickname" placeholder="输入帐号">
+                  </div>
+                   <div class="passworld">
+                        <label for="passworld">密码</label>
+                        <input id="passworld" name="passworld" placeholder="输入密码">
+                   </div>
+                   <button  type="submit" class="btn btn-default">登录</button>
+              </form>            
+           </div>
+   </div>
+</div>
+</body>
+<script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+ <script type="text/javascript">
+    $('#login_form').on('submit',function(e){
+         e.preventDefault();
+       var  formData=$(this).serialize();
+        console.log(formData)
+       $.ajax({
+          url:'/login',
+          type:'post',
+          data:formData,
+          dataType:'json',
+          success:function(data){
+             var err_code=data.err_code;
+             if(err_code===1){
+                window.alert('没有该用户')
+             }else if(err_code===0){
+                window.location.href='/'
+             }
+             
+          }
+       })
+
+
+    })
+ 
+ 
+ 
+ </script>
+</html>

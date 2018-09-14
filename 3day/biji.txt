@@ -1,0 +1,22 @@
+1.加载 require
+   语法：  var 自定义变量名=require('模块');模块：核心模块/第三方模块/自定义模块
+   两个作用：1.执行加载模块的代码;2.得到被加载模块中的exports导出的接口对象
+2.导出 exports
+  a. Node中是模块作用域;默认文件中所有的成员只是在当前文件模块中有效;
+  b. 对于希望可以被其它模块访问的成员，我们就把这些需要公开的成员都挂载到exports接口对象中就可以.
+  c.导出多个成员
+       exports.a=1;
+       exports.b='aaaa';
+       exports.c={
+          d:'sss'
+        };
+    导出单个成员:module.exports='hello';得到的直接是个字符串，这种不需要去.取得。这种是直接赋值，有多个;
+    但后面会覆盖前面;也可以拿到多个成员，写法：module.exports={};
+     module={
+     exports:{
+      }
+     }
+     exports是module.exports的一个引用;
+      console.log(exports === module.exports);true
+      所以：exports.foo='aaa'与module.exports.foo='aaaa';等价
+3.Node模块，默认在每个模块的末尾（最后一句）都会有return module.exports;

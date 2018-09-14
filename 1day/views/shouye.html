@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title> 
+<style>
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+.li{
+ list-style-type:none;
+}
+</style>
+</head>
+<body>
+ 
+<h2>我是首页</h2>
+
+ 
+<div class="center">
+    <p><a href="/post">点击留言</a></p>
+    
+    <h5>留言内容：</h5>
+    <ul>
+        {{ each comments }}
+        <li class="li">{{ $value.name }}说：{{ $value.message }}
+             <span>{{ $value.dateTime }}</span>
+            </li>
+            {{ /each }}
+    </ul>
+</div>
+ 
+</body>
+</html>

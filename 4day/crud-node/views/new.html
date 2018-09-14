@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/public/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <a class="btn btn-success" href="">添加学生</a>年龄
+            <div class="table-responsive">
+                <form action="/students/new" method="post">年龄
+                    <div class="form-group">
+                        <label for="name_">姓名</label>
+                        <input type="text" name="name" class="form-control" id="name_" placeholder="输入姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="age_">年龄</label>
+                        <input type="number" name="age" class="form-control" id="age_" placeholder="输入年龄">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender_">性别</label>
+                        <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" id="gender_" value="0" checked> 男
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="gender" id="gender_" value="1"> 女
+                                </label>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hobby_">爱好</label>
+                        <input type="text" name="hobby" class="form-control" id="hobby_" placeholder="输入爱好">
+                    </div>
+           
+                   <button type="submit" class="btn btn-default">Submit</button>
+               </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+﻿nodemon:
+   第三方插件，代码修改后，自动重启服务器
+   使用方法：nodemon app.js
+  全局安装  npm install -g nodemon
+ 下载依赖时候出现问题：  ubantu: sudo npm install -g nodemon
+                   启动的时候：
+                     1.echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+2.nodemon app.js
+
+
+3. express中配置模板  http://aui.github.io/art-template/express/
+npm install --save art-template
+npm install --save express-art-template
+  核心：app.engine('art', require('express-art-template'));以art结尾的文件用express-art-template渲染
+
+4.在express中在post请求时怎样拿到参数（第三方包 body-parser）
+   a.安装
+   b.配置
+   c  res.bodyhttps://www.npmjs.com/package/body-parser
+   d 获取数据res.body()
